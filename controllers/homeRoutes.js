@@ -26,6 +26,7 @@ router.get('/', async (req, res) => {
     }
 });
 
+// Get specific post
 router.get('/post/:id', async (req, res) => {
     try {
         const postData = await Post.findByPk({
@@ -47,6 +48,7 @@ router.get('/post/:id', async (req, res) => {
     }
 });
 
+// User profile page
 router.get('/profile', withAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.session.user_id, {
