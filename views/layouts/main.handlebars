@@ -14,7 +14,11 @@
                 <ul class="list-group list-group-horizontal">
                     <a class="list-group-item border-0 m-2 btn primary" href="/">Home</a>
                     <a class="list-group-item border-0 m-2 btn primary" href="/profile">Dashboard</a>
+                    {{#if logged_in}}
+                    <button class="list-group-item border-0 m-2 btn primary" id="logout">Logout</button>
+                    {{else}}
                     <a class="list-group-item border-0 m-2 btn primary" href="/login">Login</a>
+                    {{/if}}
                 </ul>
             </div>
         </header>
@@ -22,6 +26,8 @@
 
 
 
-
+    {{#if logged_in}}
+    <script src="/logout.js"></script>
+    {{/if}}
     </body>
 </html>
