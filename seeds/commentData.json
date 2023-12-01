@@ -1,0 +1,14 @@
+[
+    {
+        "content": "I love MVC relationships!",
+        "post_id": 1
+    },
+    {
+        "content": "Seeding is the best!",
+        "post_id": 2
+    },
+    {
+        "content": "Side-Projects are cool!",
+        "post_id": 3
+    }
+]

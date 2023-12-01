@@ -25,7 +25,7 @@ router.get('/:id', async (req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['name']
+                    attributes: ['name'],
                 },
             ],
         });
@@ -37,7 +37,7 @@ router.get('/:id', async (req, res) => {
 
         const post = postData.get({ plain: true });
 
-        return res.json(post)
+        return res.json(post);
     } catch (err) {
         console.log(err);
         res.status(500).json(err);

@@ -1,1 +1,30 @@
-<p>post testing</p>
+<div class="row mb-4 card border-dark">
+    <div class="col-md-12 d-flex justify-content-between align-items-center primary">
+        <h2>
+            <a class="text-color" href="/post/{{post.id}}">{{post.title}}</a>
+        </h2>
+        <p class="float-right">Posted by {{post.user.name}} on {{format_date post.date_created}}</p>
+    </div>
+    <div class="col-md-12">
+        <p>
+            {{post.content}}
+        </p>
+    </div>
+</div>
+
+<div class="row mb-4 card border-dark">
+    <div class="col-md-12 d-flex justify-content-between align-items-center primary">
+        <h2>
+            Comments
+        </h2>
+    </div>
+    <div class="col-md-12">
+        {{#each post.comments as |comment|}}
+        <div class="card m-1 p-2 border-dark">
+            <p>{{comment.content}}</p>
+            <p>- {{comment.user.name}}</p>
+            {{!-- <p>{{format_date comment.date_created}}</p> --}}
+        </div>
+        {{/each}}
+    </div>
+</div>
