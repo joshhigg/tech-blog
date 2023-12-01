@@ -2,16 +2,16 @@
     {
         "title": "MVC relationships",
         "content": "MVC relationships can be tough to understand.  Hands-on practice is very useful!",
-        "user_id": 0
+        "user_id": 1
     },
     {
         "title": "Why seeding is important",
         "content": "Seeding is a great way to insert test data into your application to resemble what the final product will look like.",
-        "user_id": 1
+        "user_id": 2
     },
     {
         "title": "Side-Projects",
         "content": "It is important to do additional side projects when you can, to further distinguish yourself among other programmers.",
-        "user_id": 2
+        "user_id": 3
     }
 ]

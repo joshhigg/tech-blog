@@ -99,7 +99,7 @@ const editPostHandler = async (event, postId) => {
                 if (response.ok) {
                     document.location.replace('/profile');
                 } else {
-                    alert('Failed to create post')
+                    alert('Failed to edit post')
                 }
             }
         };
