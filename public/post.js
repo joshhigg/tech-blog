@@ -24,50 +24,31 @@ window.onclick = function (event) {
     }
 }
 
-const newCommentHandler = async (event, postId) => {
+const currentPost = document.querySelector('#currentPost').textContent
+
+const newCommentHandler = async (event) => {
     event.preventDefault();
+    console.log('did it reach here?')
 
-    const response = await fetch(`./api/posts/${postId}`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    });
+    const content = document.querySelector('#add-comment').value.trim();
 
-    if (response.ok) {
-        const postData = await response.json();
-        const currentPostId = postData.id;
-
-        const commentSaver = async (event) => {
-            event.preventDefault();
-
-            const content = document.querySelector('#add-comment').value.trim();
-
-            if (content) {
-                const response = await fetch(`./api/comments/${currentPostId}`, {
-                    method: 'POST',
-                    body: JSON.stringify({ content }),
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                });
-                if (response.ok) {
-                    document.location.replace('/profile');
-                    console.log('Successful comment creation');
-                } else {
-                    alert('Failed to create comment');
-                }
-            }
-        };
-
-        document.querySelector('#newCommentButton').addEventListener('click', commentSaver);
-    } else {
-        alert('Failed to fetch post data');
+    if (content) {
+        const response = await fetch(`/api/comments/${currentPost}`, {
+            method: 'POST',
+            body: JSON.stringify({ content }),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+        if (response.ok) {
+            document.location.replace(`/post/${currentPost}`);
+            console.log('Successful comment creation');
+        } else {
+            alert('Failed to create comment');
+        }
     }
 };
 
-
 document
     .querySelector('#newCommentButton')
-    .addEventListener('click', (event) => newCommentHandler(event, postId));
-
+    .addEventListener('click', newCommentHandler);

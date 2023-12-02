@@ -46,6 +46,5 @@ sequelize.sync({ force: false }).then(() => {
 
 
 // To Dos:
-// Ability to add comments using another modal... only when logged in!
-// Ability to delete own posts
+// Ability to delete own posts and comments
 // Add comments to code
