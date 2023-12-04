@@ -54,3 +54,8 @@
     text-decoration: none;
     cursor: pointer;
   }
+
+  .delete {
+    background-color: red;
+    color: #FEFAE0;
+  }

@@ -112,6 +112,22 @@ const editPostHandler = async (event, postId) => {
     }
 };
 
+const delButtonHandler = async (event) => {
+    if (event.target.hasAttribute('data-id')) {
+        const id = event.target.getAttribute('data-id');
+
+        const response = await fetch(`/api/posts/${id}`, {
+            method: 'DELETE',
+        });
+
+        if (response.ok) {
+            document.location.replace('/profile');
+        } else {
+            alert('Failed to delete post')
+        }
+    }
+}
+
 // When the user clicks on an edit button, open the edit modal
 editButtons.forEach(function (button) {
     button.onclick = function () {
@@ -125,4 +141,7 @@ document
     .querySelector('#newPostButton')
     .addEventListener('click', newPostHandler);
 
+document
+    .querySelector('.delete-button')
+    .addEventListener('click', delButtonHandler);
 
