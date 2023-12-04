@@ -4,7 +4,7 @@ const withAuth = require('../../utils/auth');
 
 // api/posts routes
 
-// Create new post
+// Create new post, only if logged in
 router.post('/', withAuth, async (req, res) => {
     try {
         const newPost = await Post.create({
@@ -31,7 +31,6 @@ router.get('/:id', async (req, res) => {
         });
 
         if (!postData) {
-            // Handle the case where the post is not found
             return res.status(404).json({ message: 'Post not found' });
         }
 
@@ -48,12 +47,10 @@ router.get('/:id', async (req, res) => {
 router.put('/:id', async (req, res) => {
     const updatedPost = await Post.update(
         {
-            // All the fields you can update and the data attached to the request body.
             title: req.body.title,
             content: req.body.content,
         },
         {
-            // Gets a book based on the book_id given in the request parameters
             where: {
                 id: req.params.id,
             },

@@ -47,6 +47,7 @@ const newPostHandler = async (event) => {
 
     if (title && content) {
         const response = await fetch('./api/posts', {
+            // Create new post using the posts route
             method: 'POST',
             body: JSON.stringify({ title, content }),
             headers: {
@@ -117,6 +118,7 @@ const delButtonHandler = async (event) => {
         const id = event.target.getAttribute('data-id');
 
         const response = await fetch(`/api/posts/${id}`, {
+            // Use the delete method to remove the post and refresh the page
             method: 'DELETE',
         });
 
@@ -128,10 +130,9 @@ const delButtonHandler = async (event) => {
     }
 }
 
-// When the user clicks on an edit button, open the edit modal
+// add event listeners for the respective buttons
 editButtons.forEach(function (button) {
     button.onclick = function () {
-        // Fetch post data and open the edit modal
         const postId = button.getAttribute('data-post-id');
         editPostHandler(event, postId);
     };

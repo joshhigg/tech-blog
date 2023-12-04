@@ -14,6 +14,7 @@
                 <ul class="list-group list-group-horizontal">
                     <a class="list-group-item border-0 m-2 btn primary" href="/">Home</a>
                     <a class="list-group-item border-0 m-2 btn primary" href="/profile">Dashboard</a>
+                    {{!-- Default is to show the login button, unless they are already logged in, then it will show the logout button --}}
                     {{#if logged_in}}
                     <button class="list-group-item border-0 m-2 btn primary" id="logout">Logout</button>
                     {{else}}
@@ -25,7 +26,7 @@
         <main class="container secondary">{{{ body }}}</main>
 
 
-
+    {{!-- If logged in, add logic to select the logout button to logout --}}
     {{#if logged_in}}
     <script src="/logout.js"></script>
     {{/if}}

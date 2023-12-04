@@ -1,4 +1,5 @@
 const logout = async () => {
+  // users logout requst to log the user out and take them back to the homepage
     const response = await fetch('/api/users/logout', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

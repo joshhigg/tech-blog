@@ -4,7 +4,8 @@ const loginFormHandler = async (event) => {
     const email = document.querySelector('#email-login').value.trim();
     const password = document.querySelector('#password-login').value.trim();
   
-    if (email && password) {
+  if (email && password) {
+      // Use the login post route to check if the email and password entered equals an entry in the db
       const response = await fetch('/api/users/login', {
         method: 'POST',
         body: JSON.stringify({ email, password }),
@@ -28,7 +29,8 @@ const signupFormHandler = async (event) => {
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
   
-    if (name && email && password) {
+  if (name && email && password) {
+      // Create a new user with the name, email, and password using the users post route
       const response = await fetch('/api/users', {
         method: 'POST',
         body: JSON.stringify({ name, email, password }),
@@ -42,7 +44,8 @@ const signupFormHandler = async (event) => {
       }
     }
 };
-  
+
+// Add listners for the login and signup buttons
 document
   .querySelector('.login-form')
   .addEventListener('submit', loginFormHandler);

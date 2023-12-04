@@ -8,6 +8,7 @@ class User extends Model {
     }
 }
 
+// Model for Users
 User.init(
     {
         id: {
@@ -38,6 +39,7 @@ User.init(
     },
     {
         hooks: {
+            // Hash passwords for security using bcrypt
             beforeCreate: async (newUserData) => {
                 newUserData.password = await bcrypt.hash(newUserData.password, 10);
                 return newUserData

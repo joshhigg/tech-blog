@@ -4,7 +4,7 @@ const withAuth = require('../../utils/auth');
 
 // api/comments routes
 
-
+// View all comments
 router.get('/', async (req, res) => {
     try {
         const commentData = await Comment.findAll({

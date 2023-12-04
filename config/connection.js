@@ -1,3 +1,4 @@
+// setup Sequelize with dotenv package to secure private information
 const Sequelize = require('sequelize');
 require('dotenv').config();
 

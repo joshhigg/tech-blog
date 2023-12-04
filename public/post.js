@@ -24,11 +24,11 @@ window.onclick = function (event) {
     }
 }
 
+// use an element to retrive the current post for the comment
 const currentPost = document.querySelector('#currentPost').textContent
 
 const newCommentHandler = async (event) => {
     event.preventDefault();
-    console.log('did it reach here?')
 
     const content = document.querySelector('#add-comment').value.trim();
 
