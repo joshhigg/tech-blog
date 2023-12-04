@@ -1,5 +1,5 @@
 {{!-- Display all posts on the homepage --}}
-{{#each posts as |post|}}
+{{#each (sort posts "date_created" order="desc") as |post|}}
 <div class="row mb-4 card border-dark">
   <div class="col-md-12 d-flex justify-content-between align-items-center primary">
     <h2>
